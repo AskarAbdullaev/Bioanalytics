@@ -620,7 +620,7 @@ if st.button("Submit"):
 
         try:
             main(choice1, choice2, length)
-        except BaseExeption as e:
+        except BaseException as e:
             print('ERROR:', e)
 
     output_text = buffer.getvalue()
