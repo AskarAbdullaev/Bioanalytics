@@ -551,8 +551,8 @@ def main(enzyme_1, enzyme_2, n_matched: int=21):
 
     u = upper_left_triplets + upper_mid + upper_right_triplets + '-' + upper_rightmost
     l = lower_left_triplets + lower_mid + lower_right_triplets + '-' + lower_rightmost
-    print(u)
-    print(l)
+    print(add_rirection(u))
+    print(add_direction(l, reverse=True))
 
     y_clamp = len(u.split('-[')[0].split('-')[-1])
     y_clamp = f'3N + {3-y_clamp}'
