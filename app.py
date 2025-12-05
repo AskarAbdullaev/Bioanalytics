@@ -348,23 +348,23 @@ def main(enzyme_1, enzyme_2, n_matched: int=21):
 
     v = add_pair(enzyme_1, enzyme_2)
 
-    if v == '0':
+    if v == 0:
 
         raise ValueError('Enzymes are not compatible. Choose another pair')
     
-    if v == '-10':
+    if v == -10:
 
         raise ValueError('Not enough information about the enzyme compatibility. Choose another pair')
     
-    if v == '-20':
+    if v == -20:
 
         raise ValueError('Enzymes operate at different temperatures. Choose another pair')
     
-    if v == '-30':
+    if v == -30:
 
         raise ValueError('At least one enzyme does not produce sticky ends (blunt). Choose another pair')
     
-    if v == '-40':
+    if v == -40:
 
         raise ValueError('Sequences of enzymes overlap. Choose another pair')
 
