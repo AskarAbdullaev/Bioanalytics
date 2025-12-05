@@ -338,6 +338,9 @@ def print_gene(show_n: int = 24):
 
 def main(enzyme_1, enzyme_2, n_matched: int=21):
 
+    print('\n' + '-' * 100)
+    print('Number of complementary nucleotides in the primer:', n_matched)
+
     n_matched = int(n_matched)
 
     assert 3 <= n_matched <= 100, 'number of primer matching bps must be between 3 and 100'
@@ -367,6 +370,9 @@ def main(enzyme_1, enzyme_2, n_matched: int=21):
     if v == -40:
 
         raise ValueError('Sequences of enzymes overlap. Choose another pair')
+
+    if v > 0:
+        print(f'The expected activity of the pair: {enzyme_1}, {enzyme_2} is {v}%')
 
     d = apply_enzymes(enzyme_1, enzyme_2)
 
