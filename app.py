@@ -188,9 +188,6 @@ def apply_enzymes(enzyme_1, enzyme_2):
     print('\n' + '-' * 100)
 
     v = add_pair(enzyme_1, enzyme_2)
-
-    if v <= 0:
-        raise ValueError('Choose another pair of enzymes!')
     
     s1 = data[enzyme_1]['sequence']
     s2 = data[enzyme_2]['sequence']
@@ -348,28 +345,30 @@ def main(enzyme_1, enzyme_2, n_matched: int=21):
     if enzyme_1 == enzyme_2:
 
         raise ValueError('You cannot choose the same enzyme twice. Choose another pair')
-    
-    d = apply_enzymes(enzyme_1, enzyme_2)
 
-    if d == '0':
+    v = add_pair(enzyme_1, enzyme_2)
+
+    if v == '0':
 
         raise ValueError('Enzymes are not compatible. Choose another pair')
     
-    if d == '-10':
+    if v == '-10':
 
         raise ValueError('Not enough information about the enzyme compatibility. Choose another pair')
     
-    if d == '-20':
+    if v == '-20':
 
         raise ValueError('Enzymes operate at different temperatures. Choose another pair')
     
-    if d == '-30':
+    if v == '-30':
 
         raise ValueError('At least one enzyme does not produce sticky ends (blunt). Choose another pair')
     
-    if d == '-40':
+    if v == '-40':
 
         raise ValueError('Sequences of enzymes overlap. Choose another pair')
+
+    d = apply_enzymes(enzyme_1, enzyme_2)
 
     primers = design_primer_for_upper_strand(d['first'], n_matched=n_matched) | design_primer_for_lower_strand(d['second'], n_matched=n_matched)
     
