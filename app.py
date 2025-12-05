@@ -617,7 +617,11 @@ if st.button("Submit"):
 
     buffer = io.StringIO()
     with redirect_stdout(buffer):
-        main(choice1, choice2, length)
+
+        try:
+            main(choice1, choice2, length)
+        except BaseExeption as e:
+            print('ERROR:', e)
 
     output_text = buffer.getvalue()
 
