@@ -376,7 +376,7 @@ def main(enzyme_1, enzyme_2, n_matched: int=21):
 
     d = apply_enzymes(enzyme_1, enzyme_2)
 
-    primers = design_primer_for_upper_strand(d['first'], n_matched=n_matched) | design_primer_for_lower_strand(d['second'], n_matched=n_matched)
+    primers = design_primer_for_upper_strand(d['second'], n_matched=n_matched) | design_primer_for_lower_strand(d['first'], n_matched=n_matched)
     
     u, l = print_gene(n_matched+3)
 
